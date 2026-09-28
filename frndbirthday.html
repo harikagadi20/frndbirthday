@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    background:
+    radial-gradient(circle at center,#5b174f,#26002b,#09000f);
+    color:white;
+    text-align:center;
+}
+
+/* LIGHTING */
+
+.light-row{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    padding:12px;
+    z-index:5;
+}
+
+.bulb{
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff69b4,
+        0 0 35px #ffd700;
+    animation:blink 1s infinite alternate;
+}
+
+.bulb:nth-child(2){animation-delay:.2s;}
+.bulb:nth-child(3){animation-delay:.4s;}
+.bulb:nth-child(4){animation-delay:.6s;}
+.bulb:nth-child(5){animation-delay:.8s;}
+.bulb:nth-child(6){animation-delay:1s;}
+.bulb:nth-child(7){animation-delay:.3s;}
+.bulb:nth-child(8){animation-delay:.7s;}
+.bulb:nth-child(9){animation-delay:1.1s;}
+.bulb:nth-child(10){animation-delay:.5s;}
+
+@keyframes blink{
+    from{
+        opacity:.4;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.3);
+    }
+}
+
+/* FLOWERS */
+
+.flower{
+    position:absolute;
+    font-size:55px;
+    animation:flowerFloat 4s infinite ease-in-out;
+}
+
+.f1{left:3%;top:12%;}
+.f2{right:3%;top:12%;}
+.f3{left:8%;bottom:12%;}
+.f4{right:8%;bottom:12%;}
+.f5{left:20%;top:18%;}
+.f6{right:20%;top:18%;}
+
+@keyframes flowerFloat{
+    0%,100%{transform:rotate(-8deg) scale(1);}
+    50%{transform:rotate(8deg) scale(1.15);}
+}
+
+/* MAIN */
+
+.container{
+    position:relative;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:3;
+}
+
+/* TITLE */
+
+.small-title{
+    font-size:20px;
+    letter-spacing:5px;
+    color:#ffd6f5;
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:70px;
+    letter-spacing:5px;
+    color:#fff;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px #ff69b4,
+        0 0 45px #ff1493;
+    animation:titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow{
+    from{
+        text-shadow:
+        0 0 10px white,
+        0 0 20px #ff69b4;
+    }
+    to{
+        text-shadow:
+        0 0 20px white,
+        0 0 40px #ff1493,
+        0 0 70px #ffd700;
+    }
+}
+
+.name{
+    margin-top:8px;
+    font-size:40px;
+    color:#ffd700;
+    text-shadow:0 0 20px #ffd700;
+}
+
+/* MESSAGE */
+
+.message{
+    margin-top:15px;
+    font-size:20px;
+    max-width:650px;
+    line-height:1.5;
+    color:#ffeaf8;
+}
+
+/* CAKE */
+
+.cake{
+    position:relative;
+    margin-top:30px;
+    width:300px;
+    height:170px;
+}
+
+/* TOP CAKE */
+
+.layer-top{
+    position:absolute;
+    width:190px;
+    height:55px;
+    left:55px;
+    top:20px;
+    background:linear-gradient(#ffb6d9,#ff69a4);
+    border-radius:15px 15px 8px 8px;
+    box-shadow:0 8px 15px #0008;
+}
+
+.layer-middle{
+    position:absolute;
+    width:240px;
+    height:60px;
+    left:30px;
+    top:70px;
+    background:linear-gradient(#ff8fc7,#ff3d91);
+    border-radius:15px 15px 10px 10px;
+    box-shadow:0 8px 15px #0008;
+}
+
+.layer-bottom{
+    position:absolute;
+    width:290px;
+    height:65px;
+    left:5px;
+    top:120px;
+    background:linear-gradient(#ff69b4,#d81b60);
+    border-radius:15px 15px 12px 12px;
+    box-shadow:0 10px 20px #0009;
+}
+
+/* CAKE DECORATION */
+
+.dot{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:#ffd700;
+    border-radius:50%;
+    box-shadow:0 0 8px #ffd700;
+}
+
+.d1{left:70px;top:40px;}
+.d2{left:120px;top:40px;}
+.d3{left:170px;top:40px;}
+.d4{left:55px;top:90px;}
+.d5{left:110px;top:90px;}
+.d6{left:165px;top:90px;}
+.d7{left:220px;top:90px;}
+.d8{left:45px;top:140px;}
+.d9{left:100px;top:140px;}
+.d10{left:155px;top:140px;}
+.d11{left:210px;top:140px;}
+.d12{left:260px;top:140px;}
+
+/* CANDLES */
+
+.candles{
+    position:absolute;
+    top:-35px;
+    left:90px;
+    display:flex;
+    gap:18px;
+}
+
+.candle{
+    width:15px;
+    height:45px;
+    background:linear-gradient(90deg,#fff,#ff8bd1,#fff);
+    border-radius:4px;
+    position:relative;
+}
+
+.flame{
+    position:absolute;
+    width:15px;
+    height:22px;
+    background:orange;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    top:-22px;
+    left:0;
+    box-shadow:
+        0 0 10px orange,
+        0 0 20px yellow;
+    animation:flame 0.6s infinite alternate;
+}
+
+@keyframes flame{
+    from{transform:rotate(-45deg) scale(.9);}
+    to{transform:rotate(-40deg) scale(1.1);}
+}
+
+/* BALLOONS */
+
+.balloon{
+    position:absolute;
+    width:55px;
+    height:70px;
+    border-radius:50%;
+    animation:balloonFloat 5s infinite ease-in-out;
+}
+
+.balloon::after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:100px;
+    background:#fff8;
+    top:65px;
+    left:27px;
+}
+
+.b1{
+    left:8%;
+    bottom:25%;
+    background:#ff4fa3;
+}
+
+.b2{
+    left:15%;
+    bottom:35%;
+    background:#ffd700;
+    animation-delay:1s;
+}
+
+.b3{
+    right:8%;
+    bottom:25%;
+    background:#8c7bff;
+    animation-delay:2s;
+}
+
+.b4{
+    right:15%;
+    bottom:35%;
+    background:#4deaff;
+    animation-delay:1.5s;
+}
+
+@keyframes balloonFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-25px);}
+}
+
+/* CONFETTI */
+
+.confetti{
+    position:absolute;
+    width:8px;
+    height:18px;
+    background:#ffd700;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100vh) rotate(0);
+    }
+    100%{
+        transform:translateY(100vh) rotate(720deg);
+    }
+}
+
+/* FOOTER */
+
+.footer{
+    position:absolute;
+    bottom:15px;
+    font-size:15px;
+    color:#ffd9ef;
+}
+
+@media(max-width:600px){
+
+    h1{
+        font-size:42px;
+    }
+
+    .name{
+        font-size:30px;
+    }
+
+    .message{
+        font-size:16px;
+        padding:0 25px;
+    }
+
+    .cake{
+        transform:scale(.75);
+        margin-top:15px;
+    }
+
+    .flower{
+        font-size:35px;
+    }
+
+    .balloon{
+        transform:scale(.7);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LIGHTS -->
+
+<div class="light-row">
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+</div>
+
+<!-- FLOWERS -->
+
+<div class="flower f1">🌸</div>
+<div class="flower f2">🌹</div>
+<div class="flower f3">🌷</div>
+<div class="flower f4">🌺</div>
+<div class="flower f5">🌼</div>
+<div class="flower f6">🌸</div>
+
+<!-- BALLOONS -->
+
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+    <div class="small-title">
+        ✨ A SPECIAL DAY FOR A SPECIAL PERSON ✨
+    </div>
+
+    <h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+    <div class="name">
+        BHARGAVI 💖
+    </div>
+
+    <div class="message">
+        May your birthday be filled with beautiful moments,
+        endless happiness, lots of smiles and wonderful memories. 💐
+        <br>
+        Keep shining and keep smiling always! ✨💖
+    </div>
+
+    <!-- CAKE -->
+
+    <div class="cake">
+
+        <div class="candles">
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+        </div>
+
+        <div class="layer-top"></div>
+        <div class="layer-middle"></div>
+        <div class="layer-bottom"></div>
+
+        <span class="dot d1"></span>
+        <span class="dot d2"></span>
+        <span class="dot d3"></span>
+        <span class="dot d4"></span>
+        <span class="dot d5"></span>
+        <span class="dot d6"></span>
+        <span class="dot d7"></span>
+        <span class="dot d8"></span>
+        <span class="dot d9"></span>
+        <span class="dot d10"></span>
+        <span class="dot d11"></span>
+        <span class="dot d12"></span>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    Made with 💖 specially for your best friend
+</div>
+
+<!-- CONFETTI -->
+
+<script>
+
+for(let i=0;i<45;i++){
+
+    let confetti=document.createElement("div");
+
+    confetti.className="confetti";
+
+    confetti.style.left=Math.random()*100+"%";
+
+    confetti.style.animationDelay=
+        Math.random()*5+"s";
+
+    confetti.style.background=
+        ["#ff69b4","#ffd700","#00e5ff","#b388ff","#ffffff"]
+        [Math.floor(Math.random()*5)];
+
+    document.body.appendChild(confetti);
+}
+
+</script>
+
+</body>
+</html>
